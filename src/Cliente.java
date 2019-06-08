@@ -7,6 +7,10 @@ public class Cliente {
     private char genero;
     private ArrayList platillos=new ArrayList();
 
+    public Cliente() {
+    }
+
+    
     public Cliente(String nombre, int edad, char genero) {
         this.nombre = nombre;
         this.edad = edad;

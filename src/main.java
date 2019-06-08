@@ -1,6 +1,9 @@
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import java.awt.Color;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 public class main extends javax.swing.JFrame {
 
@@ -8,6 +11,7 @@ public class main extends javax.swing.JFrame {
         initComponents();
         updateChefs();
         updateClientes();
+        adminB=new administrarBarra(jProgressBar1, jt_Tabla);
     }
 
     @SuppressWarnings("unchecked")
@@ -59,6 +63,9 @@ public class main extends javax.swing.JFrame {
         jb_Ordenar = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel12 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_Tabla = new javax.swing.JTable();
 
         jLabel4.setText("Agregar cliente");
 
@@ -288,7 +295,7 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("French Script MT", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Mamarr'e");
 
@@ -338,7 +345,19 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("*Seleccione de la lista 'Clientes'");
+        jLabel12.setText("*Seleccione de la lista 'Clientes' y 'Chefs'");
+
+        jLabel18.setText("*Para eliminar seleccione uno y haga click derecho");
+
+        jt_Tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Tiempo"
+            }
+        ));
+        jScrollPane3.setViewportView(jt_Tabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,20 +376,23 @@ public class main extends javax.swing.JFrame {
                                 .addComponent(jb_CrearChef, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jb_CrearCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                                 .addComponent(jb_Ordenar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel12))
-                        .addGap(269, 269, 269)
+                            .addComponent(jLabel12)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(25, 25, 25))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18))
+                                .addContainerGap(80, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(25, 25, 25))))
@@ -381,7 +403,7 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +412,9 @@ public class main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addGap(11, 11, 11)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel18))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jb_CrearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
@@ -398,9 +422,11 @@ public class main extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(jb_Ordenar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -454,13 +480,100 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_AgChefMouseClicked
 
     private void jb_OrdenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_OrdenarMouseClicked
-        jd_Ordenar.pack();
-        jd_Ordenar.setModal(true);
-        jd_Ordenar.setVisible(true);
+        posCliente=jl_Clientes.getSelectedIndex();
+        posChef=jl_Chefs.getSelectedIndex();
+        if(jl_Clientes.getSelectedIndex()>=0){
+            if(jl_Chefs.getSelectedIndex()>=0){
+                jd_Ordenar.pack();
+                jd_Ordenar.setModal(true);
+                jd_Ordenar.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_jb_OrdenarMouseClicked
 
     private void jb_OrdenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_OrdenMouseClicked
-        
+        Date fecha=new Date();
+        if(cb_Sopas.getSelectedIndex()==0){
+            clientes.get(posCliente).getPlatillos().add(new Sopas("Tortillas", 9, 11, fecha, Color.RED));
+            chefs.get(posChef).getPlatillos().add(new Sopas("Tortillas", 9, 11, fecha, Color.RED));
+        }else{
+            if(cb_Sopas.getSelectedIndex()==1){
+                clientes.get(posCliente).getPlatillos().add(new Sopas("Res", 12, 12, fecha, Color.BLACK));
+                chefs.get(posChef).getPlatillos().add(new Sopas("Res", 12, 12, fecha, Color.BLACK));
+            }else{
+                if(cb_Sopas.getSelectedIndex()==2){
+                        clientes.get(posCliente).getPlatillos().add(new Sopas("Pollo", 10, 13, fecha, Color.YELLOW));
+                        chefs.get(posChef).getPlatillos().add(new Sopas("Pollo", 10, 13, fecha, Color.YELLOW));
+                }else{
+                    clientes.get(posCliente).getPlatillos().add(new Sopas("Capirotada", 7, 14, fecha, Color.WHITE));
+                    chefs.get(posChef).getPlatillos().add(new Sopas("Capirotada", 7, 14, fecha, Color.WHITE));
+                }
+            }
+        }
+        if(cb_Entrada.getSelectedIndex()==0){
+            clientes.get(posCliente).getPlatillos().add(new Entradas("Anafre Paraisense", 5, 21, fecha, Color.BLACK));
+            chefs.get(posChef).getPlatillos().add(new Entradas("Anafre Paraisense", 5, 21, fecha, Color.BLACK));
+        }else{
+            if(cb_Entrada.getSelectedIndex()==1){
+                clientes.get(posCliente).getPlatillos().add(new Entradas("Empanada", 7, 22, fecha, Color.RED));
+                chefs.get(posChef).getPlatillos().add(new Entradas("Empanada", 7, 22, fecha, Color.RED));
+            }else{
+                clientes.get(posCliente).getPlatillos().add(new Entradas("Huevos Rellenos", 3, 23, fecha, Color.WHITE));
+                chefs.get(posChef).getPlatillos().add(new Entradas("Huevos Rellenos", 3, 23, fecha, Color.WHITE));
+            }
+        }
+        if(cb_PlatoFuerte.getSelectedIndex()==0){
+            clientes.get(posCliente).getPlatillos().add(new PlatoFuerte("Pollo con pure", 15, 31, fecha, Color.BLACK));
+            chefs.get(posChef).getPlatillos().add(new PlatoFuerte("Pollo con pure", 15, 31, fecha, Color.BLACK));
+        }else{
+            if(cb_PlatoFuerte.getSelectedIndex()==1){
+                clientes.get(posCliente).getPlatillos().add(new PlatoFuerte("Espaguetis", 13, 32, fecha, Color.RED));
+                chefs.get(posChef).getPlatillos().add(new PlatoFuerte("Espaguetis", 13, 32, fecha, Color.RED));
+            }else{
+                if(cb_PlatoFuerte.getSelectedIndex()==2){
+                    clientes.get(posCliente).getPlatillos().add(new PlatoFuerte("Hamburguesa", 11, 33, fecha, Color.YELLOW));
+                    chefs.get(posChef).getPlatillos().add(new PlatoFuerte("Hamburguesa", 11, 33, fecha, Color.YELLOW));
+                }else{
+                    if(cb_PlatoFuerte.getSelectedIndex()==3){
+                        clientes.get(posCliente).getPlatillos().add(new PlatoFuerte("Salmon", 18, 34, fecha, Color.PINK));
+                        chefs.get(posChef).getPlatillos().add(new PlatoFuerte("Salmon", 18, 34, fecha, Color.PINK));
+                    }else{
+                        clientes.get(posCliente).getPlatillos().add(new PlatoFuerte("Cordero", 16, 35, fecha, Color.WHITE));
+                        chefs.get(posChef).getPlatillos().add(new PlatoFuerte("Cordero", 16, 35, fecha, Color.WHITE));
+                    }
+                }
+            }
+        }
+        if(cb_Postre.getSelectedIndex()==0){
+            clientes.get(posCliente).getPlatillos().add(new Postre("Pie de limon", 7, 41, fecha, Color.GREEN));
+            chefs.get(posChef).getPlatillos().add(new Postre("Pie de limon", 7, 41, fecha, Color.GREEN));
+        }else{
+            if(cb_Postre.getSelectedIndex()==1){
+                clientes.get(posCliente).getPlatillos().add(new Postre("Cheesecake", 8, 42, fecha, Color.RED));
+                chefs.get(posChef).getPlatillos().add(new Postre("Cheesecake", 8, 42, fecha, Color.RED));
+            }else{
+                if(cb_Postre.getSelectedIndex()==2){
+                    clientes.get(posCliente).getPlatillos().add(new Postre("Tiramisu", 9, 43, fecha, Color.BLACK));
+                    chefs.get(posChef).getPlatillos().add(new Postre("Tiramisu", 9, 43, fecha, Color.BLACK));
+                }else{
+                    clientes.get(posCliente).getPlatillos().add(new Postre("Crepa", 6, 44, fecha, Color.YELLOW));
+                    chefs.get(posChef).getPlatillos().add(new Postre("Crepa", 6, 44, fecha, Color.YELLOW));
+                }
+            }
+        }
+        jd_Ordenar.setVisible(false);
+        updateChefs();updateClientes();
+        DefaultTableModel modelo=(DefaultTableModel)jt_Tabla.getModel();
+        DefaultListModel modeloLista=(DefaultListModel)jl_Clientes.getModel();
+        if(jl_Clientes.getSelectedIndex()>=0){
+            modelo.setRowCount(0);
+            Cliente cl=(Cliente)modeloLista.getElementAt(jl_Clientes.getSelectedIndex());
+            ArrayList<Platillos> plat= cl.getPlatillos();
+            for (Platillos pla : plat) {
+                adminB.getPlati().add(pla);
+            }
+            adminB.setAvanzar(true);
+        }
     }//GEN-LAST:event_jb_OrdenMouseClicked
 
     private void jl_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_ClientesMouseClicked
@@ -553,6 +666,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -564,6 +678,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jb_AgChef;
     private javax.swing.JButton jb_AgCliente;
     private javax.swing.JButton jb_CrearChef;
@@ -575,6 +690,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog jd_Ordenar;
     private javax.swing.JList<String> jl_Chefs;
     private javax.swing.JList<String> jl_Clientes;
+    private javax.swing.JTable jt_Tabla;
     private javax.swing.JMenuItem mi_Eliminar;
     private javax.swing.JMenuItem mi_EliminarCh;
     private javax.swing.JPopupMenu popup_EliminarChef;
@@ -586,4 +702,7 @@ public class main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Cliente> clientes=new ArrayList();
     ArrayList<Chef> chefs=new ArrayList();
+    int posCliente;
+    int posChef;
+    administrarBarra adminB;
 }
